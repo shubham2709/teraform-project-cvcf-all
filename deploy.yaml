@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shubh-deployment
+  labels:
+    app: shubh
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: shubh
+  template:
+    metadata:
+      labels:
+        app: shubh
+    spec:
+      containers:
+        - name: shubh
+          image: 577707190806.dkr.ecr.ap-northeast-1.amazonaws.com/shubham:latest
+          ports:
+            - containerPort: 80
